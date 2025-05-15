@@ -10,7 +10,6 @@ function PrintInvoice() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const invoiceRef = useRef(null);
-  const [invoiceId, setInvoiceId] = useState(null);
   const { currentBill, loading, error } = useSelector(state => state.bills);
 
   // Add print-specific styles
@@ -68,7 +67,6 @@ function PrintInvoice() {
       return;
     }
 
-    setInvoiceId(id);
     dispatch(fetchBillById(id));
   }, [location, dispatch, navigate]);
 
